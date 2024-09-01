@@ -25,7 +25,7 @@
 <body class="{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }} type-{{ .Type }}{{ with .Layout }} layout-{{ . }}{{ end }}">
 	{{ partial "header" . }}
 	{{ block "main" . }}{{ end }}
-	{{ partial "footer" . }}
+	{{ if not ( and .IsHome ( not .Site.Params.homepageFooter )) }}{{ partial "footer" . }}{{ end }}
 	{{ partial "js-footer" . }}
 </body>
 </html>

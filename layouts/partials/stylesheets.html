@@ -12,6 +12,7 @@
 {{- $style := resources.Get "css/mobile.scss" | resources.ExecuteAsTemplate "style.mobile.scss" . | toCSS | minify | fingerprint }}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}" media="(max-width:1000px)">
 	{{ partial "custom-css.go" . }}
+	{{ if .IsHome }}<link rel="stylesheet" href="{{ "/assets/css/homepage.css" | relURL }}">{{ end }}
 {{ with .Page.Params.css }}
 	{{ range . -}}
 		<link rel="stylesheet" href="{{ . }}" crossorigin="">
