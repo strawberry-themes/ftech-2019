@@ -1,9 +1,9 @@
 <div id='discourse-comments'></div>
-<meta name="discourse-username" content="FelicianoTech">
+<meta name="discourse-username" content="{{ with .Site.Params.discourse.username }}{{ . }}{{ end }}">
 <script type="text/javascript">
 
 	DiscourseEmbed = {
-		discourseUrl: 'https://discuss.feliciano.tech/',
+		discourseUrl: '{{ with .Site.Params.discourse.url }}{{ . }}{{ end }}',
 		discourseEmbedUrl: "{{ .Permalink }}",
 		// className: 'CLASS_NAME',
 	};

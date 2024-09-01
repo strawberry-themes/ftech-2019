@@ -14,10 +14,14 @@
 		<p><strong><i class="fa fa-caret-right fa-lg"></i> Found this post useful?</strong> Subscribe to my <a href="/newsletter">newsletter</a>.</p>
 	</footer>
 </article>
-{{ if hugo.IsProduction }}
-	{{ partial "discourse-embed.html" . }}
+{{ if .Site.Params.discourse }}
+	{{ if hugo.IsProduction }}
+		{{ partial "discourse-embed.html" . }}
+	{{ else }}
+		<p>In production mode, Discourse comments will appear here.</p>
+	{{ end }}
 {{ else }}
-<p>In production mode, Discourse comments will appear here.</p>
+	<p>Discourse powered comments can appear here if you turn the feature on.</p>
 {{ end }}
 </main>
 {{ partial "share-buttons" . }}
