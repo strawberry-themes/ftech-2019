@@ -5,6 +5,7 @@
 	<header>
 		<h1>{{ .Title }}</h1>
 		<span class="posted-on">Posted by Ricardo N Feliciano on <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time></span>
+		{{if .Params.series }}{{ partial "series" . }}{{ end }}
 	{{ if and (.Params.feature) (ne .Params.featureHide true) }}
 		<img class="feature" src="/assets/img/feature/{{ .Params.feature }}" alt="" />
 	{{ end }}
