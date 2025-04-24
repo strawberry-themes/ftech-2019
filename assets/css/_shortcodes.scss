@@ -25,3 +25,15 @@
     text-align: center;
   }
 }
+
+.callout{
+  display: flex;
+  border-radius: 6px;
+  background-color: #064E3B;
+  padding: 12px 16px;
+
+  i{
+    margin-top: 10px;
+    width: 50px;
+  }
+}
