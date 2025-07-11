@@ -1,10 +1,15 @@
+{{ define "head-layout" }}
+{{ $author := index .Site.Data.authors .Params.author }}
+<meta name="fediverse:creator" content="{{ $author.mastodon }}">
+{{ end }}
 {{ define "main" }}
+{{ $author := index .Site.Data.authors .Params.author }}
 {{ if ne .Site.Params.subNav "disable" }}{{ partial "subnav-blog" . }}{{ end }}
 <main class="single">
 <article id="{{ .File.UniqueID }}">
 	<header>
 		<h1>{{ .Title }}</h1>
-		<span class="posted-on">Posted by Ricardo N Feliciano on <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time></span>
+		<span class="posted-on">Posted by {{ $author.display }} on <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time></span>
 		{{if .Params.series }}{{ partial "series" . }}{{ end }}
 	{{ if and (.Params.feature) (ne .Params.featureHide true) }}
 		<img class="feature" src="/assets/img/feature/{{ .Params.feature }}" alt="" />

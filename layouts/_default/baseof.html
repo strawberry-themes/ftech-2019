@@ -19,6 +19,7 @@
 	<meta name="description" content="{{ .Summary | plainify }}">
 {{ end }}
 	{{ partial "open-graph" . }}
+	{{ block "head-layout" . }}{{ end }}
 	{{ partial "verifications" . }}
 	<link rel="alternate" type="application/rss+xml" href="/blog/index.xml" title="{{ .Site.Title }}">
 	{{ if templates.Exists "partials/custom-partial.html" }}{{ partial "custom-partial" . }}{{ end }}
