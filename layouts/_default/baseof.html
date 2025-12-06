@@ -22,6 +22,7 @@
 	{{ block "head-layout" . }}{{ end }}
 	{{ partial "verifications" . }}
 	<link rel="alternate" type="application/rss+xml" href="/blog/index.xml" title="{{ .Site.Title }}">
+	<link rel="canonical" href="{{ .Permalink }}">
 	{{ if templates.Exists "partials/custom-partial.html" }}{{ partial "custom-partial" . }}{{ end }}
 </head>
 <body class="{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }} type-{{ .Type }}{{ with .Layout }} layout-{{ . }}{{ end }}">
